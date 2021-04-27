@@ -30,10 +30,12 @@ void xorstr() {
 	char str1[STR_LEN], str2[STR_LEN];
 	
 	while (!feof(stdin)) {
+		printf("Please, Enter string number 1: ");
 		fgets(str1, STR_LEN, stdin);
+		printf("\nPlease, Enter string number 2: ");
 		fgets(str2, STR_LEN, stdin);
 
-		printf("%d\n", argsxorstr(str1, str2));
+		printf("xor: %d\n", argsxorstr(str1, str2));
 		fflush(stdout);
 	}
 }

@@ -1,11 +1,11 @@
-all: progFather progChild
+all: progParent progChild
 
 clean: 
-	rm -f progFather progChild
+	rm -f progParent progChild
 
-progFather: father.c
-	gcc -o progFather father.c -Wall
+progParent: parent.c
+	gcc -o progParent parent.c ../functions.c
 
 progChild: child.c
-	gcc -o progChild child.c ../functions.c -Wall
+	gcc -o progChild child.c ../functions.c
 	
