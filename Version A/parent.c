@@ -6,7 +6,7 @@
 
 int main() {
 	char str1[STR_LEN], str2[STR_LEN];
-	int res, rc = fork();
+	int res = 0, rc = fork();
 	
 	if (rc < 0) {
 		fprintf(stderr, "fork failed\n");
@@ -22,8 +22,9 @@ int main() {
 		execve("./progChild", args, NULL);
 	} else {
 		wait(&res);
-		printf("xor result: %d\n", WEXITSTATUS(res));
+		res = WEXITSTATUS(res);
+		printf("xor result: %d\n", res);
 	}
 	
-	return 0;
+	return res;
 }
