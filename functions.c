@@ -32,6 +32,7 @@ void xorstr() {
 	while (!feof(stdin)) {
 		printf("Please, Enter string number 1: ");
 		fgets(str1, STR_LEN, stdin);
+		
 		printf("\nPlease, Enter string number 2: ");
 		fgets(str2, STR_LEN, stdin);
 
