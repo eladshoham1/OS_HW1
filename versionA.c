@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 			printf("Please, Enter string number 2: ");
 			fgets(str2, STR_LEN, stdin);
 			
-			char *args[] = {"./argsxorstr", str1, str2, NULL };
+			char *args[] = {"argsxorstr", str1, str2, NULL };
 			execve(args[0], args, NULL);
 		} else {
 			wait(&res);

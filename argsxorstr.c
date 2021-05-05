@@ -4,8 +4,8 @@
 #include "strlib.h"
 
 int main(int argc, char* argv[]) {
-	if (argc != 3) {
-		fprintf(stderr, "Usage: %s [str1] [str2]\n", argv[0]);
+	if (argc != ARVG_ELEMENTS) {
+		fprintf(stderr, "Usage: %s\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 
