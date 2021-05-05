@@ -5,14 +5,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include "functions.h"
+
+#include "strlib.h"
 
 int main() {
 	char str1[STR_LEN], str2[STR_LEN];
 	int res = 0, rc;
-	int protection = PROT_READ | PROT_WRITE;
-	int visibility = MAP_SHARED | MAP_ANONYMOUS;
-	char *memmap = mmap(NULL, 128, protection, visibility, -1, 0);
+	int prot = PROT_READ | PROT_WRITE;
+	int flags = MAP_SHARED | MAP_ANONYMOUS;
+	char *memmap = mmap(NULL, 128, prot, flags, -1, 0);
 	
 	do {
 		printf("Please, Enter string number 1: ");
@@ -35,7 +36,7 @@ int main() {
 			strcpy(firstStr, memmap);
 			strcpy(secondStr, &memmap[STR_LEN + 1]);
 			
-			res = argsxorstr(firstStr, secondStr);
+			res = strxor(firstStr, secondStr);
 			printf("xor result: %d\n", res);
 		} else {
 			wait(&res);

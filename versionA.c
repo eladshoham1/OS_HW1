@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include "functions.h"
+
+#include "strlib.h"
 
 int main(int argc, char *argv[]) {
 	char str1[STR_LEN], str2[STR_LEN];
@@ -11,7 +12,7 @@ int main(int argc, char *argv[]) {
 	
 	do {
 		rc = fork();
-		
+
 		if (rc < 0) {
 			fprintf(stderr, "fork failed\n");
 			exit(1);
@@ -22,7 +23,7 @@ int main(int argc, char *argv[]) {
 			printf("Please, Enter string number 2: ");
 			fgets(str2, STR_LEN, stdin);
 			
-			char *args[] = {"./child", str1, str2, NULL };
+			char *args[] = {"./argsxorstr", str1, str2, NULL };
 			execve(args[0], args, NULL);
 		} else {
 			wait(&res);
