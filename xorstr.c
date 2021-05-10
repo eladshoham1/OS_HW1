@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 		if (!mygets(str1, STR_LEN))
 			break;
 		
-		printf("\nPlease, Enter string number 2: ");
+		printf("Please, Enter string number 2: ");
 		if (!mygets(str2, STR_LEN))
 			break;
 			

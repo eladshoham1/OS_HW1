@@ -8,6 +8,7 @@
 
 #include "strlib.h"
 
+/* Version C: passing child args with mmap */
 int main() {
 	char str1[STR_LEN + 1], str2[STR_LEN + 1];
 	int res = 0, rc;
