@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 		exit(EXIT_FAILURE);
 	}
 
-	while (1) {
+	do {
 		if (!mygets(str1, STR_LEN))
 			break;
 		
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 			
 		printf("xor result: %d\n", strxor(str1, str2));
 		fflush(stdout);
-	}
+	} while (1);
 	
 	return EXIT_SUCCESS;
 }

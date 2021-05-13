@@ -19,26 +19,28 @@ int main() {
 		fprintf(stderr, "map failed\n");
 		exit(EXIT_FAILURE);
 	}
-
-	printf("Please, Enter string number 1: ");
-	mygets(str1, STR_LEN);
 	
-	printf("Please, Enter string number 2: ");
-	mygets(str2, STR_LEN);
-	
-	rc = fork();
-	
-	if (rc < 0) {
-		fprintf(stderr, "fork failed\n");
-		exit(EXIT_FAILURE);
-	} else if (rc == 0) {
-		res = strxor(addr, &addr[STR_LEN + 1]);
-		printf("xor result: %d\n", res);
-	} else {
-		memcpy(addr, str1, STR_LEN);
-		memcpy(&addr[STR_LEN + 1], str2, STR_LEN);
-		wait(NULL);
-	}
+	do {
+		printf("Please, Enter string number 1: ");
+		mygets(str1, STR_LEN);
+		
+		printf("Please, Enter string number 2: ");
+		mygets(str2, STR_LEN);
+		
+		rc = fork();
+		
+		if (rc < 0) {
+			fprintf(stderr, "fork failed\n");
+			exit(EXIT_FAILURE);
+		} else if (rc == 0) {
+			res = strxor(addr, &addr[STR_LEN + 1]);
+			printf("xor result: %d\n", res);
+		} else {
+			memcpy(addr, str1, STR_LEN);
+			memcpy(&addr[STR_LEN + 1], str2, STR_LEN);
+			wait(NULL);
+		}
+	} while (1);
 
 	return EXIT_SUCCESS;
 }
