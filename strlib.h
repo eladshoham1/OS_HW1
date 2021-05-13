@@ -2,6 +2,7 @@
 #define FUNCTIONS_H_
 
 #define EPSILON ('\0')
+#define NEW_LINE ("\n")
 #define STR_LEN (80)
 #define ARVG_ELEMENTS (3)
 

@@ -12,12 +12,10 @@ int main(int argc, char *argv[]) {
 		exit(EXIT_FAILURE);
 	}
 
-	while (!feof(stdin)) {
-		printf("Please, Enter string number 1: ");
+	while (1) {
 		if (!mygets(str1, STR_LEN))
 			break;
 		
-		printf("Please, Enter string number 2: ");
 		if (!mygets(str2, STR_LEN))
 			break;
 			
