@@ -1,19 +1,19 @@
 CC = gcc
 CFLAGS = -Wall -o
 
-all: A B C argsxorstr xorstr
+all: verA verB verC argsxorstr xorstr
 
 clean: 
 	rm -f A B C argsxorstr xorstr
 
-A: A.c
-	$(CC) $(CFLAGS) A A.c strlib.c
+verA: verA.c
+	$(CC) $(CFLAGS) verA verA.c strlib.c
 	
-B: B.c
-	$(CC) $(CFLAGS) B B.c strlib.c
+verB: verB.c
+	$(CC) $(CFLAGS) verB verB.c strlib.c
 	
-C: C.c
-	$(CC) $(CFLAGS) C C.c strlib.c
+verC: verC.c
+	$(CC) $(CFLAGS) verC verC.c strlib.c
 
 argsxorstr: argsxorstr.c
 	$(CC) $(CFLAGS) argsxorstr argsxorstr.c strlib.c
