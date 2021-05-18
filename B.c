@@ -22,8 +22,8 @@ int main(int argc, char *argv[]) {
 		fprintf(stderr, "fork failed\n");
 		exit(EXIT_FAILURE);
 	} else if (rc == 0) {
-		if (parentToChild[0] != fileno(stdin)) {
-			if (dup2(parentToChild[0], fileno(stdin)) == -1) {
+		if (parentToChild[0] != STDIN_FILENO) {
+			if (dup2(parentToChild[0], STDIN_FILENO) == -1) { // Duplicate parentToChild input to stdin
 				fprintf(stderr, "Parent to child 0 dup2 failed\n");
 				exit(EXIT_FAILURE);
 			}
@@ -39,8 +39,8 @@ int main(int argc, char *argv[]) {
 			exit(EXIT_FAILURE);
 		}
 	
-		if (childToParent[1] != fileno(stdout)) {
-			if (dup2(childToParent[1], fileno(stdout)) == -1) {
+		if (childToParent[1] != STDOUT_FILENO) {
+			if (dup2(childToParent[1], STDOUT_FILENO) == -1) { // Duplicate parentToChild output to stdout
 				fprintf(stderr, "dup2 failed\n");
 				exit(EXIT_FAILURE);
 			}
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
 			exit(EXIT_FAILURE);
 		}
 		
-		while (!feof(stdin)) {
+		while (!feof(stdin)) { // Run until end of stdin (ctrl + d)
 			char str1[STR_LEN + 1], str2[STR_LEN + 1], res[STR_LEN + 1];
 
 			printf("Please, Enter string number 1: ");

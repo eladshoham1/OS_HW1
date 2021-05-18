@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
 	char str1[STR_LEN], str2[STR_LEN];
 	int res = 0, rc;
 	
-	do {
+	while (1) { // Run until ctrl + c
 		rc = fork();
 
 		if (rc < 0) { /* fork failed */
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 			res = WEXITSTATUS(res);
 			printf("xor result: %d\n", res);
 		}
-	} while (1);
+	}
 	
 	return res;
 }
