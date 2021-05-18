@@ -4,7 +4,7 @@ CFLAGS = -Wall -o
 all: verA verB verC argsxorstr xorstr
 
 clean: 
-	rm -f A B C argsxorstr xorstr
+	rm -f verA verB verC argsxorstr xorstr
 
 verA: verA.c
 	$(CC) $(CFLAGS) verA verA.c strlib.c
